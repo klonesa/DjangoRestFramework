@@ -1,0 +1,14 @@
+from django.urls import path, include
+
+from comment.api.views import (CommentCreateAPIView,
+                               CommentUpdateAPIView,
+                               CommentListAPIView,
+                               )
+
+app_name = 'comment'
+urlpatterns = [
+    path('create', CommentCreateAPIView.as_view(), name='create'),
+    path('list', CommentListAPIView.as_view(), name='list'),
+    path('update/<pk>', CommentUpdateAPIView.as_view(), name='update'),
+
+]
